@@ -10,14 +10,16 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+	// Variables used for statistics generation
+	private final static String delimiter = ",";
+	private final static String vapeKeyWord = "vape";
+	private final static String didNotVapeKeyWord = "no";
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
 		StringBuilder vapeHistory = new StringBuilder();
-		final String delimiter = ",";
-		final String vapeKeyWord = "vape";
 		final String vapeKeyWordWithDelimiter = vapeKeyWord + delimiter;
-		final String didNotVapeKeyWord = "no";
 		final String didNotVapeKeyWordWithDelimiter = didNotVapeKeyWord + delimiter;
 
 		final int SCREEN_WIDTH = 830;
@@ -177,7 +179,7 @@ public class Main extends Application {
 			tempRoundTracker.append("x");
 			if (tempRoundTracker.toString().length() > 5) {
 				primaryStage.setScene(endScreenScene);
-				endScreenText.setText(vapeHistory.toString());
+				endScreenText.setText(generateStatistics(vapeHistory.toString()));
 				tempRoundTracker.delete(0,tempRoundTracker.length());
 			}
 		});
@@ -199,5 +201,40 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+	}
+
+	/**
+	 * Used to generate a user-friendly explanation of what their vaping, or lack thereof has done
+	 * @param vapeHistory the String containing the history of vaping and not vaping
+	 * @return
+	 */
+	private static String generateStatistics(String vapeHistory) {
+		int timesVaped = 0;
+		int timesNotVaped = 0;
+
+		String[] vapeHistoryArray = vapeHistory.split(delimiter);
+		for (int i = 0; i < vapeHistoryArray.length; i++) {
+			if (vapeHistoryArray[i].equals(vapeKeyWord)) {
+				timesVaped++;
+			} else {
+				timesNotVaped++;
+			}
+		}
+
+		StringBuilder userMessage = new StringBuilder();
+		if (timesVaped == 0) {
+			userMessage.append("You haven't vaped at all. This cost you $0, meaning you have no financial obligation to anything but yourself!\n");
+			return userMessage.toString();
+		}
+		else if (timesVaped == 1) {
+			userMessage.append("You just vaped once during this simulation.\n");
+		}
+		else {
+			userMessage.append("You have vaped " + timesVaped + " times during this simulation.\n");
+		}
+		userMessage.append(String.format("This could cost you up to $%.2f per ", (double) timesVaped / 4 * 16)); // Assuming 4 vapes cost $16
+		userMessage.append((timesNotVaped + timesVaped) + " days, which is equal to ");
+		userMessage.append(String.format("$%.2f per year, and that's without tax!", (365.0 / (timesNotVaped + timesVaped)) * ((double) timesVaped / 4 * 16)));
+		return userMessage.toString();
 	}
 }
