@@ -8,8 +8,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class Main extends Application {
 
 	@Override
@@ -30,15 +28,15 @@ public class Main extends Application {
 		final String gameScreenTitle = "E-Cig Simulation";
 		final String infoScreenTitle = "Info";
 
-		Parent titleScreen = FXMLLoader.load(getClass().getResource("TitleScreen.fxml"));
+		Parent titleScreen = FXMLLoader.load(getClass().getResource("Screens/TitleScreen.fxml"));
 		Scene titleScreenScene = new Scene(titleScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
-		Parent helpScreen = FXMLLoader.load(getClass().getResource("HelpScreen.fxml"));
+		Parent helpScreen = FXMLLoader.load(getClass().getResource("Screens/HelpScreen.fxml"));
 		Scene helpScreenScene = new Scene(helpScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
-		Parent infoScreen = FXMLLoader.load(getClass().getResource("AboutScreen.fxml"));
+		Parent infoScreen = FXMLLoader.load(getClass().getResource("Screens/AboutScreen.fxml"));
 		Scene infoScreenScene = new Scene(infoScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
-		Parent gameScreen = FXMLLoader.load(getClass().getResource("GameScreen.fxml"));
+		Parent gameScreen = FXMLLoader.load(getClass().getResource("Screens/GameScreen.fxml"));
 		Scene gameScreenScene = new Scene(gameScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
-		Parent endScreen = FXMLLoader.load(getClass().getResource("EndScreen.fxml"));
+		Parent endScreen = FXMLLoader.load(getClass().getResource("Screens/EndScreen.fxml"));
 		Scene endScreenScene = new Scene(endScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 
@@ -77,7 +75,7 @@ public class Main extends Application {
 		backToMainMenuButtonEndScreen.setOnAction(actionEvent -> {
 			primaryStage.setTitle(titleScreenTitle);
 			primaryStage.setScene(titleScreenScene);
-			vapeHistory.delete(0, vapeHistory.length()-1);
+			vapeHistory.delete(0, vapeHistory.length());
 		});
 
 
@@ -95,9 +93,9 @@ public class Main extends Application {
 		/**
 		 * Start Image Testing
  		 */
-		Image testImage = new Image("file:Proposal1/src/testImage.jpg");
-		Image testImage2 = new Image("file:Proposal1/src/testImage2.jpg");
-		Image testImage3 = new Image("file:Proposal1/src/testImage3.jpg");
+		Image testImage = new Image("file:Proposal1/src/Images/testImage.jpg");
+		Image testImage2 = new Image("file:Proposal1/src/Images/testImage2.jpg");
+		Image testImage3 = new Image("file:Proposal1/src/Images/testImage3.jpg");
 		ImageView testImageView = (ImageView) gameScreen.lookup("#imageTest");
 		/**
 		 * End Image Testing
@@ -180,7 +178,7 @@ public class Main extends Application {
 			if (tempRoundTracker.toString().length() > 5) {
 				primaryStage.setScene(endScreenScene);
 				endScreenText.setText(vapeHistory.toString());
-				tempRoundTracker.delete(0,tempRoundTracker.length()-1);
+				tempRoundTracker.delete(0,tempRoundTracker.length());
 			}
 		});
 

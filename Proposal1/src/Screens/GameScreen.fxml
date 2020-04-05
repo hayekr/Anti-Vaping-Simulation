@@ -34,7 +34,7 @@
             <Button fx:id="vapeButton" mnemonicParsing="false" prefWidth="76.0" scaleX="2.0" scaleY="2.0" text="Vape" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
             <ImageView fx:id="imageTest" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <image>
-                  <Image url="@testImage.jpg" />
+                  <Image url="@../Images/testImage.jpg" />
                </image>
             </ImageView>
             <Text fx:id="scenarioTextField" strokeType="OUTSIDE" strokeWidth="0.0" text="scenario goes here" GridPane.columnIndex="5" GridPane.rowIndex="1" />
