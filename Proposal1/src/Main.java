@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.sql.SQLOutput;
@@ -17,9 +18,15 @@ import java.util.concurrent.TimeUnit;
 
 public class Main extends Application {
 
-
 	@Override
-	public void start(Stage primaryStage) throws Exception{
+	public void start(Stage primaryStage) throws Exception {
+
+		StringBuilder vapeHistory = new StringBuilder();
+		final String delimiter = ",";
+		final String vapeKeyWord = "vape";
+		final String vapeKeyWordWithDelimiter = vapeKeyWord + delimiter;
+		final String didNotVapeKeyWord = "no";
+		final String didNotVapeKeyWordWithDelimiter = didNotVapeKeyWord + delimiter;
 
 		final int SCREEN_WIDTH = 830;
 		final int SCREEN_HEIGHT = 380;
@@ -94,6 +101,7 @@ public class Main extends Application {
  		 */
 		Image testImage = new Image("file:Proposal1/src/testImage.jpg");
 		Image testImage2 = new Image("file:Proposal1/src/testImage2.jpg");
+		Image testImage3 = new Image("file:Proposal1/src/testImage3.jpg");
 		ImageView testImageView = (ImageView) gameScreen.lookup("#imageTest");
 		/**
 		 * End Image Testing
@@ -102,22 +110,73 @@ public class Main extends Application {
 		// Gameplay Buttons
 		Button vapeButton = (Button) gameScreen.lookup("#vapeButton");
 		Button doNotVapeButton = (Button) gameScreen.lookup("#doNotVapeButton");
+		Button continueButton = (Button) gameScreen.lookup("#continueButton");
+		Text scenarioText = (Text) gameScreen.lookup("#scenarioTextField");
+		Text explanationAfterVapingText = (Text) gameScreen.lookup("#explanationAfterVapingText");
+		Text explanationAfterNotVapingText = (Text) gameScreen.lookup("#explanationAfterNotVapingText");
 
 		vapeButton.setOnAction(actionEvent -> {
 			/**
 			 * Code for handling a user vaping here
+			 * It will also send the user into the acknowledgement segment
 			 */
+
+			// Hide/Reveal elements as needed
+			continueButton.setVisible(true);
+			doNotVapeButton.setVisible(false);
+			vapeButton.setVisible(false);
+			explanationAfterVapingText.setVisible(true);
+
+			// Track History
+			vapeHistory.append(vapeKeyWordWithDelimiter);
 			testImageView.setImage(testImage);
+			System.out.println("User vaped.");
 		});
 
 		doNotVapeButton.setOnAction(actionEvent -> {
 			/**
 			 * Code for handling a user not vaping here
+			 * Code here needs to have some form of addiction simulation
+			 * It will also send the user into the acknowledgement segment
 			 */
-			testImageView.setImage(testImage2);
+			System.out.println("User did not vape.");
+			if (vapeHistory.toString().split(delimiter)[vapeHistory.toString().split(delimiter).length-1].equals(vapeKeyWord)) {
+				testImageView.setImage(testImage2);
+			}
+			else {
+				testImageView.setImage(testImage3);
+			}
+			// Hide/Reveal elements as needed
+			continueButton.setVisible(true);
+			doNotVapeButton.setVisible(false);
+			vapeButton.setVisible(false);
+			explanationAfterNotVapingText.setVisible(true);
+
+			// Track history
+			vapeHistory.append(didNotVapeKeyWordWithDelimiter);
 		});
 
 
+		StringBuilder tempStringValue = new StringBuilder();
+		continueButton.setOnAction(actionEvent -> {
+			/**
+			 * Code here needs to update scenario/images to next scenario
+			 */
+			System.out.println("User acknowledges explanation.");
+
+			// Hide/Reveal elements as needed
+			continueButton.setVisible(false);
+			doNotVapeButton.setVisible(true);
+			vapeButton.setVisible(true);
+			explanationAfterNotVapingText.setVisible(false);
+			explanationAfterVapingText.setVisible(false);
+
+			// Update scenario/explanation for next round
+			tempStringValue.append("X");
+			explanationAfterNotVapingText.setText("Did not vape " + tempStringValue.toString());
+			explanationAfterVapingText.setText("Vaped " + tempStringValue.toString());
+			scenarioText.setText("scenario " + tempStringValue.toString());
+		});
 
 
 
