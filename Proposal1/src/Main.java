@@ -1,20 +1,14 @@
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.sql.SQLOutput;
-import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main extends Application {
 
@@ -78,10 +72,12 @@ public class Main extends Application {
 		});
 
 		// End Screen Buttons
+		Text endScreenText = (Text) endScreen.lookup("#tempText");
 		Button backToMainMenuButtonEndScreen = (Button) endScreen.lookup("#backToMainMenuButton");
 		backToMainMenuButtonEndScreen.setOnAction(actionEvent -> {
 			primaryStage.setTitle(titleScreenTitle);
 			primaryStage.setScene(titleScreenScene);
+			vapeHistory.delete(0, vapeHistory.length()-1);
 		});
 
 
@@ -107,6 +103,8 @@ public class Main extends Application {
 		 * End Image Testing
 		 */
 
+
+		StringBuilder tempRoundTracker = new StringBuilder();
 		// Gameplay Buttons
 		Button vapeButton = (Button) gameScreen.lookup("#vapeButton");
 		Button doNotVapeButton = (Button) gameScreen.lookup("#doNotVapeButton");
@@ -176,6 +174,14 @@ public class Main extends Application {
 			explanationAfterNotVapingText.setText("Did not vape " + tempStringValue.toString());
 			explanationAfterVapingText.setText("Vaped " + tempStringValue.toString());
 			scenarioText.setText("scenario " + tempStringValue.toString());
+
+			// Tracker for ending game
+			tempRoundTracker.append("x");
+			if (tempRoundTracker.toString().length() > 5) {
+				primaryStage.setScene(endScreenScene);
+				endScreenText.setText(vapeHistory.toString());
+				tempRoundTracker.delete(0,tempRoundTracker.length()-1);
+			}
 		});
 
 
