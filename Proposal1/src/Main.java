@@ -8,6 +8,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 public class Main extends Application {
 
 	// Variables used for statistics generation
@@ -171,9 +173,9 @@ public class Main extends Application {
 
 			// Update scenario/explanation for next round
 			tempStringValue.append("X");
-			explanationAfterNotVapingText.setText("Did not vape " + tempStringValue.toString());
-			explanationAfterVapingText.setText("Vaped " + tempStringValue.toString());
-			scenarioText.setText("scenario " + tempStringValue.toString());
+			explanationAfterNotVapingText.setText(getNextPart());
+			explanationAfterVapingText.setText(getNextPart());
+			scenarioText.setText(getNextPart());
 
 			// Tracker for ending game
 			tempRoundTracker.append("x");
@@ -236,5 +238,16 @@ public class Main extends Application {
 		userMessage.append((timesNotVaped + timesVaped) + " days, which is equal to ");
 		userMessage.append(String.format("$%.2f per year, and that's without tax!", (365.0 / (timesNotVaped + timesVaped)) * ((double) timesVaped / 4 * 16)));
 		return userMessage.toString();
+	}
+
+
+	private static int counter = -1;
+	private static String getNextPart() {
+		ArrayList<String> arrlist = new ArrayList<String>();
+		for (int i = 0; i < 30; i++) {
+			arrlist.add("test" + i);
+		}
+		counter++;
+		return arrlist.get(counter);
 	}
 }
