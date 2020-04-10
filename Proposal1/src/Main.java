@@ -36,8 +36,8 @@ public class Main extends Application {
 		Scene titleScreenScene = new Scene(titleScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
 		Parent helpScreen = FXMLLoader.load(getClass().getResource("Screens/HelpScreen.fxml"));
 		Scene helpScreenScene = new Scene(helpScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
-		Parent infoScreen = FXMLLoader.load(getClass().getResource("Screens/AboutScreen.fxml"));
-		Scene infoScreenScene = new Scene(infoScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
+		Parent aboutScreen = FXMLLoader.load(getClass().getResource("Screens/AboutScreen.fxml"));
+		Scene infoScreenScene = new Scene(aboutScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
 		Parent gameScreen = FXMLLoader.load(getClass().getResource("Screens/GameScreen.fxml"));
 		Scene gameScreenScene = new Scene(gameScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
 		Parent endScreen = FXMLLoader.load(getClass().getResource("Screens/EndScreen.fxml"));
@@ -61,13 +61,13 @@ public class Main extends Application {
 
 
 		// Set up About screen
-		Button aboutScreen = (Button) titleScreen.lookup("#infoButton");
-		aboutScreen.setOnAction(actionEvent -> {
+		Button aboutScreenButton = (Button) titleScreen.lookup("#infoButton");
+		aboutScreenButton.setOnAction(actionEvent -> {
 			primaryStage.setScene(infoScreenScene);
 			primaryStage.setTitle(infoScreenTitle);
 		});
 		// About Screen Buttons
-		Button backToMainMenuButtonAboutScreen = (Button) infoScreen.lookup("#backToMainMenuButton");
+		Button backToMainMenuButtonAboutScreen = (Button) aboutScreen.lookup("#backToMainMenuButton");
 		backToMainMenuButtonAboutScreen.setOnAction(actionEvent -> {
 			primaryStage.setTitle(titleScreenTitle);
 			primaryStage.setScene(titleScreenScene);
