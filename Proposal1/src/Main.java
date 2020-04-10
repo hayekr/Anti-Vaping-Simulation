@@ -157,7 +157,6 @@ public class Main extends Application {
 		});
 
 
-		StringBuilder tempStringValue = new StringBuilder();
 		continueButton.setOnAction(actionEvent -> {
 			/**
 			 * Code here needs to update scenario/images to next scenario
@@ -172,7 +171,6 @@ public class Main extends Application {
 			explanationAfterVapingText.setVisible(false);
 
 			// Update scenario/explanation for next round
-			tempStringValue.append("X");
 			explanationAfterNotVapingText.setText(getNextPart());
 			explanationAfterVapingText.setText(getNextPart());
 			scenarioText.setText(getNextPart());
