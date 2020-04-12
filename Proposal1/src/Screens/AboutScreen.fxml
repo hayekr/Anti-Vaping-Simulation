@@ -30,7 +30,7 @@
                 <Font size="24.0" />
             </font>
         </Text>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Designed by Daniel Siatkosky, Max Kane, Caden Bower, and Bobby Hayek for ECCS 1621 and Katie McCourt" textAlignment="CENTER" wrappingWidth="600.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Designed by Daniel Siatkosky, Max Kane, Caden Bower, and Robert Hayek for ECCS 1621 and Katie McCourt" textAlignment="CENTER" wrappingWidth="600.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
             <font>
                 <Font size="24.0" />
             </font>
