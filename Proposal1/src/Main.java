@@ -16,6 +16,8 @@ public class Main extends Application {
 	private final static String delimiter = ",";
 	private final static String vapeKeyWord = "vape";
 	private final static String didNotVapeKeyWord = "no";
+	static ScenarioHandler scenarioHandler = new ScenarioHandler(delimiter, vapeKeyWord, didNotVapeKeyWord);
+	static AddictionSimulation addictionSimulation = new AddictionSimulation();
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -75,6 +77,7 @@ public class Main extends Application {
 
 		// End Screen Buttons
 		Text endScreenText = (Text) endScreen.lookup("#tempText");
+		Text endScreenAddictionExplanation = (Text) endScreen.lookup("#addictionExplanation");
 		Button backToMainMenuButtonEndScreen = (Button) endScreen.lookup("#backToMainMenuButton");
 		backToMainMenuButtonEndScreen.setOnAction(actionEvent -> {
 			primaryStage.setTitle(titleScreenTitle);
@@ -171,15 +174,18 @@ public class Main extends Application {
 			explanationAfterVapingText.setVisible(false);
 
 			// Update scenario/explanation for next round
-			explanationAfterNotVapingText.setText(getNextPart());
-			explanationAfterVapingText.setText(getNextPart());
-			scenarioText.setText(getNextPart());
+			scenarioHandler.updateVapeHistory(vapeHistory.toString());
+			addictionSimulation.setSimulationValues(scenarioHandler.getTimesVaped(), scenarioHandler.isVapedLastTime());
+			explanationAfterNotVapingText.setText(scenarioHandler.getDidNotVapeExplanation());
+			explanationAfterVapingText.setText(scenarioHandler.getVapedExplanation());
+			scenarioText.setText(scenarioHandler.getScenario());
 
 			// Tracker for ending game
 			tempRoundTracker.append("x");
 			if (tempRoundTracker.toString().length() > 5) {
 				primaryStage.setScene(endScreenScene);
 				endScreenText.setText(generateStatistics(vapeHistory.toString()));
+				endScreenAddictionExplanation.setText(addictionSimulation.getExplanation());
 				tempRoundTracker.delete(0,tempRoundTracker.length());
 			}
 		});
@@ -193,7 +199,6 @@ public class Main extends Application {
 		primaryStage.setTitle(titleScreenTitle);
 		primaryStage.setScene(titleScreenScene);
 		primaryStage.show();
-
 	}
 
 
@@ -242,7 +247,7 @@ public class Main extends Application {
 	private static int counter = -1;
 	private static String getNextPart() {
 		ArrayList<String> arrlist = new ArrayList<String>();
-		for (int i = 0; i < 30; i++) {
+		for (int i = 0; i < 100; i++) {
 			arrlist.add("test" + i);
 		}
 		counter++;
