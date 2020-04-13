@@ -92,8 +92,6 @@ public class ScenarioHandler {
 	 */
 	public void updateVapeHistory(String vapeHistory) {
 		String[] vapeHistoryArray = vapeHistory.split(delimiter);
-		System.out.println(vapeHistory);
-		System.out.println(delimiter);
 		int vapeCount = 0;
 		for (String s : vapeHistoryArray) {
 			if (s.equals(vapeKeyword)) vapeCount++;
