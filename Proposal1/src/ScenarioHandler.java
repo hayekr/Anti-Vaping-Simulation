@@ -1,5 +1,7 @@
 import javafx.scene.image.Image;
 
+import java.util.ArrayList;
+
 /**
  * Used to generate scenarios based on current vape statistics
  */
@@ -12,6 +14,10 @@ public class ScenarioHandler {
 	private boolean vapedLastTime;
 	private int timesVaped;
 
+	private ArrayList<Scenario> scenariosArrayList = new ArrayList<Scenario>();
+
+	private int tempTestingCounter = 0;
+
 	/**
 	 * Constructor for Scenario Handler
 	 * @param delimiter
@@ -22,6 +28,7 @@ public class ScenarioHandler {
 		this.delimiter = delimiter;
 		this.vapeKeyword = vapeKeyword;
 		this.didNotVapeKeyword = didNotVapeKeyWord;
+		generateScenarioList();
 	}
 
 	/**
@@ -37,7 +44,7 @@ public class ScenarioHandler {
 	 * NOTE: The vape history must be updated prior to running
 	 */
 	public String getScenario() {
-		return "Next scenario";
+		return scenariosArrayList.get(tempTestingCounter).getScenario();
 	}
 
 	/**
@@ -46,7 +53,7 @@ public class ScenarioHandler {
 	 * NOTE: The vape history must be updated prior to running
 	 */
 	public String getVapedExplanation() {
-		return "Vape explanation";
+		return scenariosArrayList.get(tempTestingCounter).getVapedExplanation();
 	}
 
 	/**
@@ -55,7 +62,7 @@ public class ScenarioHandler {
 	 * NOTE: Thee vape history must be updated prior to running
 	 */
 	public String getDidNotVapeExplanation() {
-		return "Did not vape explanation";
+		return scenariosArrayList.get(tempTestingCounter).getDidNotVapeExplanation();
 	}
 
 	/**
@@ -63,15 +70,7 @@ public class ScenarioHandler {
 	 * @return the image
 	 */
 	public Image getImage() {
-		Image testImage1 = new Image("file:Proposal1/src/Images/testImage1.jpg");
-		Image testImage2 = new Image("file:Proposal1/src/Images/testImage2.jpg");
-		Image testImage3 = new Image("file:Proposal1/src/Images/testImage3.jpg");
-		switch (timesVaped % 3) {
-			case 0: return testImage1;
-			case 1: return testImage2;
-			case 2: return testImage3;
-		}
-		return testImage1;
+		return scenariosArrayList.get(tempTestingCounter).getScenarioImage();
 	}
 
 	/**
@@ -86,6 +85,7 @@ public class ScenarioHandler {
 		}
 		this.timesVaped = vapeCount;
 		vapedLastTime = (vapeHistoryArray[vapeHistoryArray.length - 1].equals(vapeKeyword));
+		tempTestingCounter++;
 	}
 
 	/**
@@ -102,5 +102,20 @@ public class ScenarioHandler {
 	 */
 	public boolean isVapedLastTime() {
 		return vapedLastTime;
+	}
+
+	/**
+	 * Used to generate the scenario list
+	 */
+	private void generateScenarioList() {
+		// Temporary Testing Scenario Generator
+		for (int i = 0; i < 150; i++) {
+			switch(i % 3) {
+				case 0: scenariosArrayList.add(new Scenario("Scenario0", "vapedExp0","dnVapedExp0", new Image("file:Proposal1/src/Images/testImage1.jpg"))); break;
+				case 1: scenariosArrayList.add(new Scenario("Scenario1", "vapedExp1","dnVapedExp1", new Image("file:Proposal1/src/Images/testImage2.jpg"))); break;
+				case 2: scenariosArrayList.add(new Scenario("Scenario2", "vapedExp2","dnVapedExp2", new Image("file:Proposal1/src/Images/testImage3.jpg"))); break;
+				default:
+			}
+		}
 	}
 }

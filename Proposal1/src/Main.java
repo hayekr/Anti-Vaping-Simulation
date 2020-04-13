@@ -181,17 +181,14 @@ public class Main extends Application {
 			// Addiction Simulation Code
 			//		Double press
 			if (addictionSimulation.requireDoubleClick() && (doublePressed == 0)) {
-				System.out.println("Double click");
 				gameScreen_doNotVapeButton.setText(doNotVapeButtonDoublePressText);
 			}
 			// 		Popup
 			if (addictionSimulation.requirePopUp() && (doublePressed == 0)) {
-				System.out.println("Popup");
 				popUp.showAndWait();
 				doublePressed++;
 			}
 			if (addictionSimulation.requireDoubleClickAndPopUp() && (doublePressed == 0)) {
-				System.out.println("Double Click + Popup");
 				popUp.showAndWait();
 				gameScreen_doNotVapeButton.setText(doNotVapeButtonDoublePressText);
 			}
@@ -213,7 +210,6 @@ public class Main extends Application {
 				}
 			}
 			doublePressed++;
-			System.out.println(doublePressed);
 		});
 
 

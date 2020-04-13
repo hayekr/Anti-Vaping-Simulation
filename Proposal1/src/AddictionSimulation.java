@@ -94,6 +94,10 @@ public class AddictionSimulation {
 		return timesVaped >= 7;
 	}
 
+	/**
+	 * Used to see if the do not vape button should be hidden
+	 * @return true if it should be hidden, false otherwise
+	 */
 	public boolean hideDoNotVapeButton() {
 		return timesVaped >= 9;
 	}
