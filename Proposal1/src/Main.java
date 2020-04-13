@@ -83,6 +83,8 @@ public class Main extends Application {
 		Text gameScreen_explanationAfterNotVapingText = (Text) gameScreen.lookup("#explanationAfterNotVapingText");
 		Text endScreen_statisticsText = (Text) endScreen.lookup("#tempText");
 		Text endScreen_addictionExplanationText = (Text) endScreen.lookup("#addictionExplanation");
+		ImageView gameScreen_imageDisplay = (ImageView) gameScreen.lookup("#imageTest");
+
 
 
 		// Used for reduced code duplication
@@ -155,17 +157,6 @@ public class Main extends Application {
 			gameButtonReset.fire();
 		});
 
-		/**
-		 * Start Image Testing
- 		 */
-		Image testImage = new Image("file:Proposal1/src/Images/testImage.jpg");
-		Image testImage2 = new Image("file:Proposal1/src/Images/testImage2.jpg");
-		Image testImage3 = new Image("file:Proposal1/src/Images/testImage3.jpg");
-		ImageView testImageView = (ImageView) gameScreen.lookup("#imageTest");
-		/**
-		 * End Image Testing
-		 */
-
 
 		// This code segment handles a user pressing the vape button
 		gameScreen_vapeButton.setOnAction(actionEvent -> {
@@ -177,7 +168,6 @@ public class Main extends Application {
 
 			// Track History
 			vapeHistory.append(vapeKeyWordWithDelimiter);
-			testImageView.setImage(testImage);
 		});
 
 
@@ -209,12 +199,6 @@ public class Main extends Application {
 
 			// Ensure that, if needed, addiction simulation runs prior to advancing scenario
 			if (doublePressed == 1) {
-				if (vapeHistory.toString().split(delimiter)[vapeHistory.toString().split(delimiter).length-1].equals(vapeKeyWord)) {
-					testImageView.setImage(testImage2);
-				}
-				else {
-					testImageView.setImage(testImage3);
-				}
 				// Hide/Reveal elements as needed
 				gameScreen_continueButton.setVisible(true);
 				gameScreen_doNotVapeButton.setVisible(false);
@@ -254,6 +238,7 @@ public class Main extends Application {
 			gameScreen_explanationAfterNotVapingText.setText(scenarioHandler.getDidNotVapeExplanation());
 			gameScreen_explanationAfterVapingText.setText(scenarioHandler.getVapedExplanation());
 			gameScreen_scenarioText.setText(scenarioHandler.getScenario());
+			gameScreen_imageDisplay.setImage(scenarioHandler.getImage());
 			// Addiction Simulation
 			if (addictionSimulation.expandVapeButton()) {
 				gameScreen_vapeButton.setScaleX(gameScreen_vapeButton.getScaleX() * vapeScaleSpeed);

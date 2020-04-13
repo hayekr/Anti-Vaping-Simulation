@@ -1,14 +1,16 @@
+import javafx.scene.image.Image;
+
 /**
  * Used to generate scenarios based on current vape statistics
  */
 public class ScenarioHandler {
 
-	String delimiter;
-	String vapeKeyword;
-	String didNotVapeKeyword;
+	private String delimiter;
+	private String vapeKeyword;
+	private String didNotVapeKeyword;
 
-	boolean vapedLastTime;
-	int timesVaped;
+	private boolean vapedLastTime;
+	private int timesVaped;
 
 	/**
 	 * Constructor for Scenario Handler
@@ -31,31 +33,11 @@ public class ScenarioHandler {
 
 	/**
 	 * Used to get the current scenario based on vape history
-	 * @param vapeHistory the current vape history
-	 * @return the scenario
-	 */
-	public String getScenario(String vapeHistory) {
-		updateVapeHistory(vapeHistory);
-		return getScenario();
-	}
-
-	/**
-	 * Used to get the current scenario based on vape history
 	 * @return the current scenario
 	 * NOTE: The vape history must be updated prior to running
 	 */
 	public String getScenario() {
 		return "Next scenario";
-	}
-
-	/**
-	 * Used to get the explanation to be eusede assuming the user vapes
-	 * @param vapeHistory the current vape history
-	 * @return the explanation
-	 */
-	public String getVapedExplantion(String vapeHistory) {
-		updateVapeHistory(vapeHistory);
-		return getVapedExplanation();
 	}
 
 	/**
@@ -69,21 +51,27 @@ public class ScenarioHandler {
 
 	/**
 	 * Used to get the explanation to be used assuming the user does not vape
-	 * @param vapeHistory the current vape history
-	 * @return the explanation
-	 */
-	public String getDidNotVapeExplanation(String vapeHistory) {
-		updateVapeHistory(vapeHistory);
-		return getDidNotVapeExplanation();
-	}
-
-	/**
-	 * Used to get the explanation to be used assuming the user does not vape
 	 * @return the explanation
 	 * NOTE: Thee vape history must be updated prior to running
 	 */
 	public String getDidNotVapeExplanation() {
 		return "Did not vape explanation";
+	}
+
+	/**
+	 * Used to get the image representing the scenario
+	 * @return the image
+	 */
+	public Image getImage() {
+		Image testImage1 = new Image("file:Proposal1/src/Images/testImage1.jpg");
+		Image testImage2 = new Image("file:Proposal1/src/Images/testImage2.jpg");
+		Image testImage3 = new Image("file:Proposal1/src/Images/testImage3.jpg");
+		switch (timesVaped % 3) {
+			case 0: return testImage1;
+			case 1: return testImage2;
+			case 2: return testImage3;
+		}
+		return testImage1;
 	}
 
 	/**
