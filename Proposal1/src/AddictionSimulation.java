@@ -66,7 +66,7 @@ public class AddictionSimulation {
 	 * Used to see if a popup should be displayed encouraging the user to vape
 	 * @return true if the popup should be used, false otherwise
 	 */
-	public boolean popUp() {
+	public boolean requirePopUp() {
 		return timesVaped >= 4 && timesVaped < 6;
 	}
 
@@ -113,7 +113,7 @@ public class AddictionSimulation {
 			case 8:
 			case 7: sb.append("After vaping 7 times, the vape button became larger.\n");
 			case 6: sb.append("After vaping 6 times, you had to both double click the do not vape button and close a popup.\n");
-			case 5: sb.append("After vaping 5 times, the do not vape button became smaller.\n"); break;
+			case 5: sb.append("After vaping 5 times, the do not vape button became smaller.\n");
 			case 4: sb.append("After vaping 4 times, you had to close a popup before being able to choose not to vape.\n");
 			case 3:
 			case 2:

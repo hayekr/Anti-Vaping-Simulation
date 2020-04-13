@@ -2,13 +2,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
 
 public class Main extends Application {
 
@@ -19,18 +18,25 @@ public class Main extends Application {
 
 	// UI Values
 	//		Do not vape button
-	private int doNotVapeButtonScale = 2;
-	private String doNotVapeButtonText = "Don't Vape";
+	private final int doNotVapeButtonDefaultScale = 2;
+	private final String doNotVapeButtonDefaultText = "Don't Vape";
+	private final String doNotVapeButtonDoublePressText = "Are you sure?";
 	//		Vape button
-	private int vapeButtonScale = 2;
-	private String vapeButtonText = "Vape";
+	private final int vapeButtonDefaultScale = 2;
+	private final String vapeButtonDefaultText = "Vape";
 	//		Continue button
-	private int continueButtonScale = 2;
-	private String continueButtonText = "Continue";
+	private final int continueButtonDefaultScale = 2;
+	private final String continueButtonDefaultText = "Continue";
 
 	// Object Construction
-	static ScenarioHandler scenarioHandler = new ScenarioHandler(delimiter, vapeKeyWord, didNotVapeKeyWord);
-	static AddictionSimulation addictionSimulation = new AddictionSimulation();
+	private static ScenarioHandler scenarioHandler = new ScenarioHandler(delimiter, vapeKeyWord, didNotVapeKeyWord);
+	private static AddictionSimulation addictionSimulation = new AddictionSimulation();
+
+	// Addiction Simulation
+	private int doublePressed = 1;
+	private final String popUpText = "Are you sure you don't want to vape?";
+	private final double vapeScaleSpeed = 1.025;
+	private final double doNotVapeScaleSpeed = 0.975;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -93,45 +99,48 @@ public class Main extends Application {
 		gameButtonReset.setVisible(false);
 		gameButtonReset.setOnAction(actionEvent -> {
 			// Reset vape button
-			gameScreen_vapeButton.setText(vapeButtonText);
-			gameScreen_vapeButton.setScaleX(vapeButtonScale);
-			gameScreen_vapeButton.setScaleY(vapeButtonScale);
+			gameScreen_vapeButton.setText(vapeButtonDefaultText);
+			gameScreen_vapeButton.setScaleX(vapeButtonDefaultScale);
+			gameScreen_vapeButton.setScaleY(vapeButtonDefaultScale);
 			// Reset do not vape button
-			gameScreen_doNotVapeButton.setText(doNotVapeButtonText);
-			gameScreen_doNotVapeButton.setScaleX(doNotVapeButtonScale);
-			gameScreen_doNotVapeButton.setScaleY(doNotVapeButtonScale);
+			gameScreen_doNotVapeButton.setText(doNotVapeButtonDefaultText);
+			gameScreen_doNotVapeButton.setScaleX(doNotVapeButtonDefaultScale);
+			gameScreen_doNotVapeButton.setScaleY(doNotVapeButtonDefaultScale);
 			// Reset continue button
-			gameScreen_continueButton.setText(continueButtonText);
-			gameScreen_continueButton.setScaleX(continueButtonScale);
-			gameScreen_continueButton.setScaleY(continueButtonScale);
-		});
-
-
-		// Set up Help screen button
-		titleScreen_helpScreenButton.setOnAction(actionEvent -> {
-			primaryStage.setTitle(helpScreenTitle);
-			primaryStage.setScene(helpScreenScene);
-		});
-
-		// Help Screen Buttons
-		helpScreen_backToMainMenuButton.setOnAction(actionEvent -> {
-			backToMainMenu.fire();
+			gameScreen_continueButton.setText(continueButtonDefaultText);
+			gameScreen_continueButton.setScaleX(continueButtonDefaultScale);
+			gameScreen_continueButton.setScaleY(continueButtonDefaultScale);
 		});
 
 
 
-
-		// Set up About screen
-		titleScreen_aboutScreenButton.setOnAction(actionEvent -> {
-			primaryStage.setScene(infoScreenScene);
-			primaryStage.setTitle(infoScreenTitle);
-		});
-		// About Screen Buttons
+		// About Screen Button Handling
 		aboutScreen_backToMainMenuButton.setOnAction(actionEvent -> {
 			backToMainMenu.fire();
 		});
 
+		// Help Screen Button Handling
+		helpScreen_backToMainMenuButton.setOnAction(actionEvent -> {
+			backToMainMenu.fire();
+		});
 
+		// End Screen Handling
+		// This code segment handles the button that sends the user back to the title screen after finishing simulation
+		//		and resetting the game end tracker
+		endScreen_backToMainMenuButton.setOnAction(actionEvent -> {
+			backToMainMenu.fire();
+			vapeHistory.delete(0, vapeHistory.length());
+		});
+
+		// Title screen button handling
+		titleScreen_helpScreenButton.setOnAction(actionEvent -> {
+			primaryStage.setTitle(helpScreenTitle);
+			primaryStage.setScene(helpScreenScene);
+		});
+		titleScreen_aboutScreenButton.setOnAction(actionEvent -> {
+			primaryStage.setScene(infoScreenScene);
+			primaryStage.setTitle(infoScreenTitle);
+		});
 
 		// This code segment handles a user pressing the play button
 		// It needs to set the text and sizes on buttons to enable kiosk style play
@@ -157,8 +166,7 @@ public class Main extends Application {
 		 * End Image Testing
 		 */
 
-		// This stringbuilder is used for ending thee game
-		StringBuilder tempRoundTracker = new StringBuilder();
+
 		// This code segment handles a user pressing the vape button
 		gameScreen_vapeButton.setOnAction(actionEvent -> {
 			// Hide/Reveal elements as needed
@@ -172,39 +180,60 @@ public class Main extends Application {
 			testImageView.setImage(testImage);
 		});
 
+
+		// Additional addiction simulation code
+		Alert popUp = new Alert(Alert.AlertType.CONFIRMATION);
+		popUp.setContentText(popUpText);
+
 		// This code segment handles a user pressing the do not vape button
 		// Addiction simulation code goes in here
 		gameScreen_doNotVapeButton.setOnAction(actionEvent -> {
 			// Addiction Simulation Code
-
-
-
-
-			if (vapeHistory.toString().split(delimiter)[vapeHistory.toString().split(delimiter).length-1].equals(vapeKeyWord)) {
-				testImageView.setImage(testImage2);
+			//		Double press
+			if (addictionSimulation.requireDoubleClick() && (doublePressed == 0)) {
+				System.out.println("Double click");
+				gameScreen_doNotVapeButton.setText(doNotVapeButtonDoublePressText);
 			}
-			else {
-				testImageView.setImage(testImage3);
+			// 		Popup
+			if (addictionSimulation.requirePopUp() && (doublePressed == 0)) {
+				System.out.println("Popup");
+				popUp.showAndWait();
+				doublePressed++;
 			}
-			// Hide/Reveal elements as needed
-			gameScreen_continueButton.setVisible(true);
-			gameScreen_doNotVapeButton.setVisible(false);
-			gameScreen_vapeButton.setVisible(false);
-			gameScreen_explanationAfterNotVapingText.setVisible(true);
+			if (addictionSimulation.requireDoubleClickAndPopUp() && (doublePressed == 0)) {
+				System.out.println("Double Click + Popup");
+				popUp.showAndWait();
+				gameScreen_doNotVapeButton.setText(doNotVapeButtonDoublePressText);
+			}
 
-			// Track history
-			vapeHistory.append(didNotVapeKeyWordWithDelimiter);
+
+			// Ensure that, if needed, addiction simulation runs prior to advancing scenario
+			if (doublePressed == 1) {
+				if (vapeHistory.toString().split(delimiter)[vapeHistory.toString().split(delimiter).length-1].equals(vapeKeyWord)) {
+					testImageView.setImage(testImage2);
+				}
+				else {
+					testImageView.setImage(testImage3);
+				}
+				// Hide/Reveal elements as needed
+				gameScreen_continueButton.setVisible(true);
+				gameScreen_doNotVapeButton.setVisible(false);
+				gameScreen_vapeButton.setVisible(false);
+				gameScreen_explanationAfterNotVapingText.setVisible(true);
+
+				// Track history
+				vapeHistory.append(didNotVapeKeyWordWithDelimiter);
+				if (addictionSimulation.requireDoubleClick() || addictionSimulation.requireDoubleClickAndPopUp() || addictionSimulation.requirePopUp()) {
+					doublePressed = -1;
+					gameScreen_doNotVapeButton.setText(doNotVapeButtonDefaultText);
+				}
+			}
+			doublePressed++;
+			System.out.println(doublePressed);
 		});
 
 
-
-		// End Screen Handling
-		// This code segment handles the button that sends the user back to the title screen after finishing simulation
-		//		and resetting the game end tracker
-		endScreen_backToMainMenuButton.setOnAction(actionEvent -> {
-			backToMainMenu.fire();
-			vapeHistory.delete(0, vapeHistory.length());
-		});
+		StringBuilder tempRoundTracker = new StringBuilder();
 
 		// Continue Button Handling
 		// This code segment updates images and sceenarios for next round
@@ -225,10 +254,19 @@ public class Main extends Application {
 			gameScreen_explanationAfterNotVapingText.setText(scenarioHandler.getDidNotVapeExplanation());
 			gameScreen_explanationAfterVapingText.setText(scenarioHandler.getVapedExplanation());
 			gameScreen_scenarioText.setText(scenarioHandler.getScenario());
+			// Addiction Simulation
+			if (addictionSimulation.expandVapeButton()) {
+				gameScreen_vapeButton.setScaleX(gameScreen_vapeButton.getScaleX() * vapeScaleSpeed);
+				gameScreen_vapeButton.setScaleY(gameScreen_vapeButton.getScaleY() * vapeScaleSpeed);
+			}
+			if (addictionSimulation.shrinkDoNotVapeButton()) {
+				gameScreen_doNotVapeButton.setScaleX(gameScreen_doNotVapeButton.getScaleX() * doNotVapeScaleSpeed);
+				gameScreen_doNotVapeButton.setScaleY(gameScreen_doNotVapeButton.getScaleY() * doNotVapeScaleSpeed);
+			}
 
 			// Tracker for ending game
 			tempRoundTracker.append("x");
-			if (tempRoundTracker.toString().length() > 5) {
+			if (tempRoundTracker.toString().length() > 10) {
 				primaryStage.setScene(endScreenScene);
 				endScreen_statisticsText.setText(generateStatistics(vapeHistory.toString()));
 				endScreen_addictionExplanationText.setText(addictionSimulation.getExplanation());
