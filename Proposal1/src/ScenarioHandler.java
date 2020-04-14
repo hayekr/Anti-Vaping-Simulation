@@ -108,6 +108,27 @@ public class ScenarioHandler {
 	 * Used to generate the scenario list
 	 */
 	private void generateScenarioList() {
+		// Design Review 1 Scenarios - no branching storyline
+		scenariosArrayList.add(new Scenario(
+				"Your friend comes up to you with an E-Cig and asks if you want to try it. He says he's been having a good time with it recently and hasn't noticed any negative effects. Do you want to try it out?",
+				"You shouldn't have done that. He mentioned that he'd only been using it recently and negative side effects can take time to manifest.",
+				"Good decision! There are many potential side effects that may only manifest later in a person's use of vaping",
+				new Image("file:Proposal1/src/Images/Juul - CDC Image.png")));
+		scenariosArrayList.add(new Scenario(
+				"Your friend comes up with E-Cig and asks if you want to try it. He knows that you’ve said no before and this time it doesn’t have any nicotine, it’s just the flavoring. Do you want to try it now?",
+				"You shouldn't have done that. While there might not be any nicotine, there are still harmful compounds within the generated aerosol can be harmful to lungs.",
+				"Good decision! While there might not be any nicotine, there are still harmful compounds within the generated aerosol can be harmful to lungs.",
+				new Image("file:Proposal1/src/Images/CDC - vape aerosol contents.jpg")));
+		scenariosArrayList.add(new Scenario(
+				"Your friend comes up with E-Cig and asks if you want to try it. He just got a new cannabis E-cig and he says it makes him feel really good. Do you want to try it now?",
+				"You shouldn't have done that. While there might not be any nicotine, there are still harmful compounds within the generated aerosol can be harmful to lungs.",
+				"Good decision! While there might not be any nicotine, there are still harmful compounds within the generated aerosol can be harmful to lungs.",
+				new Image("file:Proposal1/src/Images/PAX Era - CDC Image.png")));
+		scenariosArrayList.add(new Scenario(
+				"You're bored at home and a sibling has an E-Cig. You know that they're okay with you trying it, they've offered it to you before. Do you want to try it?",
+				"You shouldn't have done that. Just because someone else is willing to risk their health doesn't mean you should risk yours as well.",
+				"Good decision! Just because someone else is willing to risk their health doesn't mean you should risk yours as well.",
+				new Image("file:Proposal1/src/Images/Juul - CDC Image.png")));
 		// Temporary Testing Scenario Generator
 		for (int i = 0; i < 150; i++) {
 			switch(i % 3) {

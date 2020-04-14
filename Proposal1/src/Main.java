@@ -113,6 +113,19 @@ public class Main extends Application {
 			gameScreen_continueButton.setScaleX(continueButtonDefaultScale);
 			gameScreen_continueButton.setScaleY(continueButtonDefaultScale);
 		});
+		// 		Update scenario
+		Button scenarioLoader = new Button();
+		scenarioLoader.setVisible(false);
+		scenarioLoader.setOnAction(actionEvent -> {
+			// Update scenario/explanation for next round
+			scenarioHandler.updateVapeHistory(vapeHistory.toString());
+			addictionSimulation.setSimulationValues(scenarioHandler.getTimesVaped(), scenarioHandler.isVapedLastTime());
+			gameScreen_explanationAfterNotVapingText.setText(scenarioHandler.getDidNotVapeExplanation());
+			gameScreen_explanationAfterVapingText.setText(scenarioHandler.getVapedExplanation());
+			gameScreen_scenarioText.setText(scenarioHandler.getScenario());
+			gameScreen_imageDisplay.setImage(scenarioHandler.getImage());
+
+		});
 
 
 
@@ -145,14 +158,11 @@ public class Main extends Application {
 		});
 
 		// This code segment handles a user pressing the play button
-		// It needs to set the text and sizes on buttons to enable kiosk style play
-		//
 		titleScreen_startGame.setOnAction(actionEvent -> {
 			primaryStage.setTitle(gameScreenTitle);
 			primaryStage.setScene(gameScreenScene);
-			/**
-			 * Put code for loading in first scenario/pictures here
-			 */
+			// Load in first scenario
+			scenarioLoader.fire();
 			// Reset buttons for new game
 			gameButtonReset.fire();
 		});
@@ -228,13 +238,6 @@ public class Main extends Application {
 			gameScreen_explanationAfterNotVapingText.setVisible(false);
 			gameScreen_explanationAfterVapingText.setVisible(false);
 
-			// Update scenario/explanation for next round
-			scenarioHandler.updateVapeHistory(vapeHistory.toString());
-			addictionSimulation.setSimulationValues(scenarioHandler.getTimesVaped(), scenarioHandler.isVapedLastTime());
-			gameScreen_explanationAfterNotVapingText.setText(scenarioHandler.getDidNotVapeExplanation());
-			gameScreen_explanationAfterVapingText.setText(scenarioHandler.getVapedExplanation());
-			gameScreen_scenarioText.setText(scenarioHandler.getScenario());
-			gameScreen_imageDisplay.setImage(scenarioHandler.getImage());
 			// Addiction Simulation
 			if (addictionSimulation.expandVapeButton()) {
 				gameScreen_vapeButton.setScaleX(gameScreen_vapeButton.getScaleX() * vapeScaleSpeed);
@@ -244,6 +247,9 @@ public class Main extends Application {
 				gameScreen_doNotVapeButton.setScaleX(gameScreen_doNotVapeButton.getScaleX() * doNotVapeScaleSpeed);
 				gameScreen_doNotVapeButton.setScaleY(gameScreen_doNotVapeButton.getScaleY() * doNotVapeScaleSpeed);
 			}
+
+			// Update scenario
+			scenarioLoader.fire();
 
 			// Tracker for ending game
 			tempRoundTracker.append("x");
