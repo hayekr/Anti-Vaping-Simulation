@@ -91,14 +91,12 @@ public class Main extends Application {
 		// TODO: replace with better method that doesn't use buttons
 		//		Back to main menu
 		Button backToMainMenu = new Button();
-		backToMainMenu.setVisible(false);
 		backToMainMenu.setOnAction(actionEvent -> {
 			primaryStage.setScene(titleScreenScene);
 			primaryStage.setTitle(titleScreenTitle);
 		});
 		//		Reset game buttons to default values
 		Button gameButtonReset = new Button();
-		gameButtonReset.setVisible(false);
 		gameButtonReset.setOnAction(actionEvent -> {
 			// Reset vape button
 			gameScreen_vapeButton.setText(vapeButtonDefaultText);
@@ -115,9 +113,7 @@ public class Main extends Application {
 		});
 		// 		Update scenario
 		Button scenarioLoader = new Button();
-		scenarioLoader.setVisible(false);
 		scenarioLoader.setOnAction(actionEvent -> {
-			// Update scenario/explanation for next round
 			scenarioHandler.updateVapeHistory(vapeHistory.toString());
 			addictionSimulation.setSimulationValues(scenarioHandler.getTimesVaped(), scenarioHandler.isVapedLastTime());
 			gameScreen_explanationAfterNotVapingText.setText(scenarioHandler.getDidNotVapeExplanation());
@@ -226,7 +222,7 @@ public class Main extends Application {
 		StringBuilder tempRoundTracker = new StringBuilder();
 
 		// Continue Button Handling
-		// This code segment updates images and sceenarios for next round
+		// This code segment updates images and scenarios for next round
 		gameScreen_continueButton.setOnAction(actionEvent -> {
 			/**
 			 * Code here needs to update images to next scenario

@@ -132,9 +132,9 @@ public class ScenarioHandler {
 		// Temporary Testing Scenario Generator
 		for (int i = 0; i < 150; i++) {
 			switch(i % 3) {
-				case 0: scenariosArrayList.add(new Scenario("Scenario0", "vapedExp0","dnVapedExp0", new Image("file:Proposal1/src/Images/testImage1.jpg"))); break;
-				case 1: scenariosArrayList.add(new Scenario("Scenario1", "vapedExp1","dnVapedExp1", new Image("file:Proposal1/src/Images/testImage2.jpg"))); break;
-				case 2: scenariosArrayList.add(new Scenario("Scenario2", "vapedExp2","dnVapedExp2", new Image("file:Proposal1/src/Images/testImage3.jpg"))); break;
+				case 0: scenariosArrayList.add(new Scenario("Scenario0", "vapedExp0","didnotVapeExp0", new Image("file:Proposal1/src/Images/testImage1.jpg"))); break;
+				case 1: scenariosArrayList.add(new Scenario("Scenario1", "vapedExp1","didnotVapeExp1", new Image("file:Proposal1/src/Images/testImage2.jpg"))); break;
+				case 2: scenariosArrayList.add(new Scenario("Scenario2", "vapedExp2","didnotVapeExp2", new Image("file:Proposal1/src/Images/testImage3.jpg"))); break;
 				default:
 			}
 		}

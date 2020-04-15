@@ -4,7 +4,7 @@ public class Scenario {
 	private String scenario;
 	private String vapedExplanation;
 	private String didNotVapeExplanation;
-	private Image scenarioImage;
+	private Image scenarioImage; // Possibly add before/after decision images
 
 	/**
 	 * Constructor for scenario
