@@ -22,22 +22,22 @@
    <children>
       <Button fx:id="backToMainMenuButton" mnemonicParsing="false" text="Back" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
-            <Font size="18.0" />
+            <Font name="Courier New" size="18.0" />
          </font>
       </Button>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="In order to play, press &quot;Play&quot;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
          <font>
-            <Font size="24.0" />
+            <Font name="Courier New" size="24.0" />
          </font>
       </Text>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="When playing, you can choose to Vape or not Vape" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
-            <Font size="24.0" />
+            <Font name="Courier New" size="24.0" />
          </font>
       </Text>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="These choices are representative of real life, so take care when making your choices" textAlignment="CENTER" wrappingWidth="600.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <font>
-            <Font size="24.0" />
+            <Font name="Courier New" size="24.0" />
          </font>
       </Text>
    </children>

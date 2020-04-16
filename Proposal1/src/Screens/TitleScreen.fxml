@@ -28,20 +28,20 @@
          <children>
             <Label maxWidth="350.0" prefHeight="66.0" prefWidth="350.0" scaleX="2.0" scaleY="2.0" text="E-Cig Simulation" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
-                  <Font name="Fira Code Light" size="25.0" />
+                  <Font name="Courier New" size="25.0" />
                </font>
             </Label>
             <Button fx:id="helpButton" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="Help" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="TOP">
                <font>
-                  <Font name="Fira Code Light" size="13.0" />
+                  <Font name="Courier New" size="13.0" />
                </font></Button>
             <Button fx:id="playButton" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="Play" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
                <font>
-                  <Font name="Fira Code Light" size="13.0" />
+                  <Font name="Courier New" size="13.0" />
                </font></Button>
             <Button fx:id="infoButton" mnemonicParsing="false" scaleX="2.0" scaleY="2.0" text="Info" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
                <font>
-                  <Font name="Fira Code Light" size="13.0" />
+                  <Font name="Courier New" size="13.0" />
                </font></Button>
          </children>
       </GridPane>

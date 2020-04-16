@@ -123,8 +123,6 @@ public class Main extends Application {
 
 		});
 
-
-
 		// About Screen Button Handling
 		aboutScreen_backToMainMenuButton.setOnAction(actionEvent -> {
 			backToMainMenu.fire();
@@ -162,7 +160,6 @@ public class Main extends Application {
 			// Reset buttons for new game
 			gameButtonReset.fire();
 		});
-
 
 		// This code segment handles a user pressing the vape button
 		gameScreen_vapeButton.setOnAction(actionEvent -> {
