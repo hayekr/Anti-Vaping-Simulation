@@ -117,14 +117,14 @@ public class ScenarioHandler {
 				"Sourced from CDC"));
 		scenariosArrayList.add(new Scenario(
 				"Your friend comes up with E-Cig and asks if you want to try it. He knows that you’ve said no before and this time it doesn’t have any nicotine, it’s just the flavoring. Do you want to try it now?",
-				"You shouldn't have done that. While there might not be any nicotine, there are still harmful compounds within the generated aerosol can be harmful to lungs.",
-				"Good decision! While there might not be any nicotine, there are still harmful compounds within the generated aerosol can be harmful to lungs.",
+				"You shouldn't have done that. While there might not be any nicotine, there are still harmful compounds within the generated aerosol that can be harmful to lungs.",
+				"Good decision! While there might not be any nicotine, there are still harmful compounds within the generated aerosol that can be harmful to lungs.",
 				new Image("file:Proposal1/src/Images/CDC - vape aerosol contents.jpg"),
 				"Sourced from CDC"));
 		scenariosArrayList.add(new Scenario(
 				"Your friend comes up with E-Cig and asks if you want to try it. He just got a new cannabis E-cig and he says it makes him feel really good. Do you want to try it now?",
-				"You shouldn't have done that. While there might not be any nicotine, there are still harmful compounds within the generated aerosol can be harmful to lungs.",
-				"Good decision! While there might not be any nicotine, there are still harmful compounds within the generated aerosol can be harmful to lungs.",
+				"You shouldn't have done that. While there might not be any nicotine, there are still harmful compounds within the generated aerosol that can be harmful to lungs.",
+				"Good decision! While there might not be any nicotine, there are still harmful compounds within the generated aerosol that can be harmful to lungs.",
 				new Image("file:Proposal1/src/Images/PAX Era - CDC Image.png"),
 				"Sourced from CDC"));
 		scenariosArrayList.add(new Scenario(
