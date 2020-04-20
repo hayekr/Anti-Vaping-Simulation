@@ -248,6 +248,7 @@ public class Main extends Application {
 					doublePressed = -1;
 					gameScreen_doNotVapeButton.setText(doNotVapeButtonDefaultText);
 				}
+				doublePressed = 0;
 			}
 			doublePressed++;
 		});
@@ -258,9 +259,6 @@ public class Main extends Application {
 		// Continue Button Handling
 		// This code segment updates images and scenarios for next round
 		gameScreen_continueButton.setOnAction(actionEvent -> {
-			/**
-			 * Code here needs to update images to next scenario
-			 */
 			// Hide/Reveal elements as needed
 			gameScreen_continueButton.setVisible(false);
 			gameScreen_doNotVapeButton.setVisible(true);
