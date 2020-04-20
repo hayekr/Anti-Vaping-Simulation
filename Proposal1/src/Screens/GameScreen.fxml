@@ -6,8 +6,8 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Text?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
@@ -46,9 +46,9 @@
                   <Image url="@../Images/testImage1.jpg" />
                </image>
             </ImageView>
-            <Text fx:id="scenarioTextField" strokeType="OUTSIDE" strokeWidth="0.0" text="scenario" wrappingWidth="250.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+            <Text fx:id="scenarioTextField" strokeType="OUTSIDE" strokeWidth="0.0" text="scenario" wrappingWidth="250.0" GridPane.columnIndex="5" GridPane.rowIndex="1" GridPane.valignment="TOP">
                 <font>
-                    <Font name="Courier New" size="23.0"/>
+                    <Font name="Courier New" size="18.0" />
                 </font>
             </Text>
             <Button fx:id="continueButton" mnemonicParsing="false" text="press to acknowledge explanation" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
@@ -56,14 +56,14 @@
                     <Font name="Courier New" />
                 </font>
              </Button>
-            <Text fx:id="explanationAfterNotVapingText" strokeType="OUTSIDE" strokeWidth="0.0" text="explanationAfterNotVaping" visible="false" wrappingWidth="250.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+            <Text fx:id="explanationAfterNotVapingText" strokeType="OUTSIDE" strokeWidth="0.0" text="explanationAfterNotVaping" visible="false" wrappingWidth="250.0" GridPane.columnIndex="5" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
                 <font>
-                    <Font name="Courier New" size="18.0"/>
+                    <Font name="Courier New" size="18.0" />
                 </font>
             </Text>
-            <Text fx:id="explanationAfterVapingText" strokeType="OUTSIDE" strokeWidth="0.0" text="explanationAfterVaping" visible="false" wrappingWidth="250.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+            <Text fx:id="explanationAfterVapingText" strokeType="OUTSIDE" strokeWidth="0.0" text="explanationAfterVaping" visible="false" wrappingWidth="250.0" GridPane.columnIndex="5" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
                 <font>
-                    <Font name="Courier New"  size="18.0"/>
+                    <Font name="Courier New" size="18.0" />
                 </font>
             </Text>
          </children>
