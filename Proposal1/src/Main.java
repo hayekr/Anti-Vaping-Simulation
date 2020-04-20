@@ -228,6 +228,7 @@ public class Main extends Application {
 				popUp.showAndWait();
 				doublePressed++;
 			}
+			//		Popup and double click
 			if (addictionSimulation.requireDoubleClickAndPopUp() && (doublePressed == 0)) {
 				popUp.showAndWait();
 				gameScreen_doNotVapeButton.setText(doNotVapeButtonDoublePressText);
@@ -248,7 +249,9 @@ public class Main extends Application {
 					doublePressed = -1;
 					gameScreen_doNotVapeButton.setText(doNotVapeButtonDefaultText);
 				}
-				doublePressed = 0;
+				else {
+					doublePressed = 0;
+				}
 			}
 			doublePressed++;
 		});
