@@ -38,6 +38,9 @@ public class Main extends Application {
 	private final double vapeScaleSpeed = 1.025;
 	private final double doNotVapeScaleSpeed = 0.975;
 
+	// Image Credit
+	private int imageCreditIndex = 0;
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
@@ -52,6 +55,7 @@ public class Main extends Application {
 		final String helpScreenTitle = "Help";
 		final String gameScreenTitle = "E-Cig Simulation";
 		final String infoScreenTitle = "Info";
+		final String imageCreditScreenTitle = "Image Credits";
 
 
 		// Define parents
@@ -60,6 +64,7 @@ public class Main extends Application {
 		Parent aboutScreen = FXMLLoader.load(getClass().getResource("Screens/AboutScreen.fxml"));
 		Parent gameScreen = FXMLLoader.load(getClass().getResource("Screens/GameScreen.fxml"));
 		Parent endScreen = FXMLLoader.load(getClass().getResource("Screens/EndScreen.fxml"));
+		Parent imageCreditScreen = FXMLLoader.load(getClass().getResource("Screens/ImageCreditScreen.fxml"));
 
 		// Define Scenes
 		Scene titleScreenScene = new Scene(titleScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -67,6 +72,7 @@ public class Main extends Application {
 		Scene infoScreenScene = new Scene(aboutScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
 		Scene gameScreenScene = new Scene(gameScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
 		Scene endScreenScene = new Scene(endScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
+		Scene imageCreditScene = new Scene(imageCreditScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 		// Define all UI elements
 		Button titleScreen_helpScreenButton = (Button) titleScreen.lookup("#helpButton");
@@ -74,16 +80,22 @@ public class Main extends Application {
 		Button titleScreen_startGame = (Button) titleScreen.lookup("#playButton");
 		Button helpScreen_backToMainMenuButton = (Button) helpScreen.lookup("#backToMainMenuButton");
 		Button aboutScreen_backToMainMenuButton = (Button) aboutScreen.lookup("#backToMainMenuButton");
+		Button aboutScreen_goToImageCreditsButton = (Button) aboutScreen.lookup("#goToImageCredits");
 		Button gameScreen_vapeButton = (Button) gameScreen.lookup("#vapeButton");
 		Button gameScreen_doNotVapeButton = (Button) gameScreen.lookup("#doNotVapeButton");
 		Button gameScreen_continueButton = (Button) gameScreen.lookup("#continueButton");
 		Button endScreen_backToMainMenuButton = (Button) endScreen.lookup("#backToMainMenuButton");
+		Button imageCreditScreen_nextButton = (Button) imageCreditScreen.lookup("#nextButton");
+		Button imageCreditScreen_previousButton = (Button) imageCreditScreen.lookup("#previousButton");
+		Button imageCreditScreen_backToMainMenuButton = (Button) imageCreditScreen.lookup("#backToMainMenuButton");
 		Text gameScreen_scenarioText = (Text) gameScreen.lookup("#scenarioTextField");
 		Text gameScreen_explanationAfterVapingText = (Text) gameScreen.lookup("#explanationAfterVapingText");
 		Text gameScreen_explanationAfterNotVapingText = (Text) gameScreen.lookup("#explanationAfterNotVapingText");
 		Text endScreen_statisticsText = (Text) endScreen.lookup("#tempText");
 		Text endScreen_addictionExplanationText = (Text) endScreen.lookup("#addictionExplanation");
+		Text imageCreditScreen_imageCredit = (Text) imageCreditScreen.lookup("#imageCredit");
 		ImageView gameScreen_imageDisplay = (ImageView) gameScreen.lookup("#imageTest");
+		ImageView imageCreditScreen_image = (ImageView) imageCreditScene.lookup("#image");
 
 
 
@@ -122,10 +134,35 @@ public class Main extends Application {
 			gameScreen_imageDisplay.setImage(scenarioHandler.getImage());
 
 		});
+		Button imageCreditLoader = new Button();
+		imageCreditLoader.setOnAction(actionEvent -> {
+			imageCreditScreen_image.setImage(scenarioHandler.getCreditableImageByIndexWithRollover(imageCreditIndex).getImage());
+			imageCreditScreen_imageCredit.setText(scenarioHandler.getCreditableImageByIndexWithRollover(imageCreditIndex).getCredit());
+		});
+
 
 		// About Screen Button Handling
 		aboutScreen_backToMainMenuButton.setOnAction(actionEvent -> {
 			backToMainMenu.fire();
+		});
+		aboutScreen_goToImageCreditsButton.setOnAction(actionEvent -> {
+			imageCreditIndex = 0;
+			imageCreditLoader.fire();
+			primaryStage.setScene(imageCreditScene);
+			primaryStage.setTitle(imageCreditScreenTitle);
+		});
+
+		// Image Credit Screen Handling
+		imageCreditScreen_backToMainMenuButton.setOnAction(actionEvent -> {
+			backToMainMenu.fire();
+		});
+		imageCreditScreen_nextButton.setOnAction(actionEvent -> {
+			imageCreditIndex++;
+			imageCreditLoader.fire();
+		});
+		imageCreditScreen_previousButton.setOnAction(actionEvent -> {
+			imageCreditIndex--;
+			imageCreditLoader.fire();
 		});
 
 		// Help Screen Button Handling
