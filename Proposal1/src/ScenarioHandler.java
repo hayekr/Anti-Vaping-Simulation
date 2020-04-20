@@ -134,7 +134,7 @@ public class ScenarioHandler {
 				new Image("file:Proposal1/src/Images/Juul - CDC Image.png"),
 				"Sourced from CDC"));
 		// Temporary Testing Scenario Generator
-		for (int i = 0; i < 150; i++) {
+		for (int i = 0; i < 15; i++) {
 			switch(i % 3) {
 				case 0: scenariosArrayList.add(new Scenario("Scenario0", "vapedExp0","didnotVapeExp0", new Image("file:Proposal1/src/Images/testImage1.jpg"), "credit0")); break;
 				case 1: scenariosArrayList.add(new Scenario("Scenario1", "vapedExp1","didnotVapeExp1", new Image("file:Proposal1/src/Images/testImage2.jpg"), "credit1")); break;
