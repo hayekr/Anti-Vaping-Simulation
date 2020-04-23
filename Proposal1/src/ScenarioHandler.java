@@ -16,7 +16,7 @@ public class ScenarioHandler {
 
 	private ArrayList<Scenario> scenariosArrayList = new ArrayList<Scenario>();
 
-	private int tempTestingCounter = 0;
+	private int tempTestingCounter;
 
 	/**
 	 * Constructor for Scenario Handler
@@ -85,7 +85,7 @@ public class ScenarioHandler {
 		}
 		this.timesVaped = vapeCount;
 		vapedLastTime = (vapeHistoryArray[vapeHistoryArray.length - 1].equals(vapeKeyword));
-		tempTestingCounter++;
+		tempTestingCounter = vapeHistoryArray.length - 1;
 	}
 
 	/**

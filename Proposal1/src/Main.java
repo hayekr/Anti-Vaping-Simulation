@@ -218,7 +218,6 @@ public class Main extends Application {
 		// This code segment handles a user pressing the do not vape button
 		// Addiction simulation code goes in here
 		gameScreen_doNotVapeButton.setOnAction(actionEvent -> {
-
 			// Addiction Simulation Code
 			//		Double press
 			if (addictionSimulation.requireDoubleClick() && (doublePressed == 0)) {
