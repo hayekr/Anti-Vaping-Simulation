@@ -218,6 +218,7 @@ public class Main extends Application {
 		// This code segment handles a user pressing the do not vape button
 		// Addiction simulation code goes in here
 		gameScreen_doNotVapeButton.setOnAction(actionEvent -> {
+
 			// Addiction Simulation Code
 			//		Double press
 			if (addictionSimulation.requireDoubleClick() && (doublePressed == 0)) {
@@ -245,13 +246,6 @@ public class Main extends Application {
 
 				// Track history
 				vapeHistory.append(didNotVapeKeyWordWithDelimiter);
-				if (addictionSimulation.requireDoubleClick() || addictionSimulation.requireDoubleClickAndPopUp() || addictionSimulation.requirePopUp()) {
-					doublePressed = -1;
-					gameScreen_doNotVapeButton.setText(doNotVapeButtonDefaultText);
-				}
-				else {
-					doublePressed = 0;
-				}
 			}
 			doublePressed++;
 		});
@@ -281,6 +275,15 @@ public class Main extends Application {
 
 			// Update scenario
 			scenarioLoader.fire();
+
+			// Addiction simulation
+			if (addictionSimulation.requireDoubleClick() || addictionSimulation.requireDoubleClickAndPopUp() || addictionSimulation.requirePopUp()) {
+				doublePressed = 0;
+				gameScreen_doNotVapeButton.setText(doNotVapeButtonDefaultText);
+			}
+			else {
+				doublePressed = 1;
+			}
 
 			// Tracker for ending game
 			tempRoundTracker.append("x");
