@@ -50,7 +50,7 @@
                 <Font name="Courier New" size="18.0" />
             </font>
         </Button>
-        <Text fx:id="imageCredit" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+        <Text fx:id="imageCredit" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="600.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
             <font>
                 <Font name="Courier New" size="18.0" />
             </font>
