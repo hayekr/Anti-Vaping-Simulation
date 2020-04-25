@@ -40,5 +40,10 @@
                 <Font name="Courier New" size="24.0" />
             </font>
         </Text>
+      <Button fx:id="goToImageCredits" mnemonicParsing="false" text="View Image Credits" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Courier New" size="18.0" />
+         </font>
+      </Button>
     </children>
 </GridPane>

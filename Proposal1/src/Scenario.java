@@ -4,7 +4,7 @@ public class Scenario {
 	private String scenario;
 	private String vapedExplanation;
 	private String didNotVapeExplanation;
-	private Image scenarioImage; // Possibly add before/after decision images
+	private CreditableImage scenarioImage; // Possibly add before/after decision images
 
 	/**
 	 * Constructor for scenario
@@ -12,12 +12,13 @@ public class Scenario {
 	 * @param vapedExplanation the explanation of a user's choice if he or she vaped
 	 * @param didNotVapeExplanation the explanation of a user's choice if he or she did not vape
 	 * @param scenarioImage the image associated with the scenario
+	 * @param imageCredit the credit for the image associated with this scenario
 	 */
-	Scenario(String scenario, String vapedExplanation, String didNotVapeExplanation, Image scenarioImage) {
+	Scenario(String scenario, String vapedExplanation, String didNotVapeExplanation, Image scenarioImage, String imageCredit) {
 		this.scenario = scenario;
 		this.vapedExplanation = vapedExplanation;
 		this.didNotVapeExplanation = didNotVapeExplanation;
-		this.scenarioImage = scenarioImage;
+		this.scenarioImage = new CreditableImage(scenarioImage, imageCredit);
 	}
 
 	/**
@@ -49,6 +50,10 @@ public class Scenario {
 	 * @return the image associated with the scenario
 	 */
 	public Image getScenarioImage() {
+		return scenarioImage.getImage();
+	}
+
+	public CreditableImage getCreditableImage() {
 		return scenarioImage;
 	}
 }
