@@ -85,7 +85,12 @@ public class ScenarioHandler {
 		}
 		this.timesVaped = vapeCount;
 		vapedLastTime = (vapeHistoryArray[vapeHistoryArray.length - 1].equals(vapeKeyword));
-		tempTestingCounter = vapeHistoryArray.length - 1;
+		if (vapeHistoryArray[0].equals("")) {
+			tempTestingCounter = 0;
+		}
+		else {
+			tempTestingCounter = vapeHistoryArray.length;
+		}
 	}
 
 	/**
