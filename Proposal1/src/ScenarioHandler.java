@@ -108,7 +108,6 @@ public class ScenarioHandler {
 	 * Used to generate the scenario list
 	 */
 	private void generateScenarioList() {
-		// Design Review 1 Scenarios - no branching storyline
 		scenariosArrayList.add(new Scenario(
 				"Your friend comes up to you with an E-Cig and asks if you want to try it. He says he's been having a good time with it recently and hasn't noticed any negative effects. Do you want to try it out?",
 				"You shouldn't have done that. He mentioned that he'd only been using it recently and negative side effects can take time to manifest.",
