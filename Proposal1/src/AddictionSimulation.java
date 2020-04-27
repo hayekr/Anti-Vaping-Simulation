@@ -112,7 +112,7 @@ public class AddictionSimulation {
 		int timesVaped = this.timesVaped;
 		if (this.timesVaped > 9) timesVaped = 9;
 		switch (timesVaped) {
-			//case 9: sb.append("You experienced every simulated aspect of addiction.\n" +
+			case 9:// sb.append("You experienced every simulated aspect of addiction.\n" +
 			//		"After vaping 9 times, the do not vape button simply started disappearing.\n");
 			case 8:
 			case 7: sb.append("After vaping 7 times, the vape button became larger.\n");
