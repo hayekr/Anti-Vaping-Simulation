@@ -176,6 +176,7 @@ public class Main extends Application {
 		endScreen_backToMainMenuButton.setOnAction(actionEvent -> {
 			backToMainMenu.fire();
 			vapeHistory.delete(0, vapeHistory.length());
+			scenarioHandler.resetIndex();
 		});
 
 		// Title screen button handling

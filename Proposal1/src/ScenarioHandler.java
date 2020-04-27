@@ -152,4 +152,12 @@ public class ScenarioHandler {
 	public CreditableImage getCreditableImageByIndexWithRollover(int index) {
 		return scenariosArrayList.get((index + 25 * scenariosArrayList.size()) % scenariosArrayList.size()).getCreditableImage();
 	}
+
+	/**
+	 * Reset the scenario handler to the first position
+	 * Allows for kiosk style play
+	 */
+	public void resetIndex() {
+		tempTestingCounter = 0;
+	}
 }
