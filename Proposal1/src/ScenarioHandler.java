@@ -127,8 +127,8 @@ public class ScenarioHandler {
 				"https://en.wikipedia.org/wiki/File:E-Cigarette_E-liquid_by_Vaping_Monkey_(9628487175).jpg"));
 		scenariosArrayList.add(new Scenario(
 				"This time, your friend comes up with a different E-Cig and asks if you want to try it. It's a new cannabis E-cig and he says it makes him feel really good. Do you want to try it now?",
-				"You shouldn't have done that. While there might not be any nicotine, there are still harmful compounds within the generated aerosol that can be harmful to lungs, such as formaldehyde(widely known to cause cancer).",
-				"Good decision! While there might not be any nicotine, there are still harmful compounds within the generated aerosol that can be harmful to lungs, such as formaldehyde(widely known to cause cancer).",
+				"You shouldn't have done that. While there might not be any nicotine, there are still harmful compounds within the generated aerosol that can be harmful to lungs, such as formaldehyde (widely known to cause cancer).",
+				"Good decision! While there might not be any nicotine, there are still harmful compounds within the generated aerosol that can be harmful to lungs, such as formaldehyde (widely known to cause cancer).",
 				new Image("file:Proposal1/src/Images/scenario3.jpg"),
 				"https://commons.wikimedia.org/wiki/File:98880448-marijuana-or-cannabis-leaf-icon-vector-logo-template-isolated-illustration-on-white-background-.jpg"));
 		scenariosArrayList.add(new Scenario(
@@ -145,14 +145,14 @@ public class ScenarioHandler {
 				"https://en.wikipedia.org/wiki/File:Smoke_Screen_(16582794210).jpg"));
 		scenariosArrayList.add(new Scenario(
 				"You are at a baseball game and a buddy of yours is vaping. He’s offered to share before, do you want to try it? Its in a public setting anyway, maybe it's the thing to do here.",
-				"Your buddy may be fine vaping, but that doesn’t mean that you should be fine as well. The setting shouldn't matter; if its dangerous, its still obviously dangerous at a game.",
-				"Good decision! Just because your buddy is fine with the very possible health risks doesn’t mean you should be too. The setting shouldn't matter; if its dangerous, its still obviously dangerous at a game.",
+				"Your buddy may be fine vaping, but that doesn’t mean that you should be fine as well. The setting shouldn't matter; if its dangerous, it's still dangerous at a game.",
+				"Good decision! Just because your buddy is fine with the very possible health risks doesn’t mean you should be too. The setting shouldn't matter; if its dangerous, it's still dangerous at a game.",
 				new Image("file:Proposal1/src/Images/800px-MLB_game.JPG"),
 				"https://commons.wikimedia.org/wiki/File:MLB_game.JPG"));
 		scenariosArrayList.add(new Scenario(
 				"You are at a party and everyone seems to be vaping. You want to fit in, but do you want to vape?",
-				"It may seem like everyone is vaping, but according to the CDC, only around 1 in 5 students vape. Obviously not EVERYONE is doing it.",
-				"Good decision! It may seem like everyone is vaping, but according to the CDC around 1 in 5 students vape. Obviously not EVERYONE it doing it.",
+				"It may seem like everyone is vaping, but according to the CDC, only around 1 in 5 students vape, so it's clear not everyone is doing it.",
+				"Good decision! It may seem like everyone is vaping, but according to the CDC around 1 in 5 students vape, so it's clear not everyone is doing it.",
 				new Image("file:Proposal1/src/Images/1920px-Juul_in_hand.jpg"),
 				"https://commons.wikimedia.org/wiki/Category:Juul_vaping_device#/media/File:Juul_in_hand.jpg"));
 		scenariosArrayList.add(new Scenario(
@@ -164,7 +164,7 @@ public class ScenarioHandler {
 		scenariosArrayList.add(new Scenario(
 				"Your parents have always told you that they disapprove of smoking due to the numerous health effects and issues regarding the odor, but you’ve seen discrete e-cigarettes. Do you use one?",
 				"While you may disagree with what your parents say, they tend to have good reason for what they say, especially in the case of vaping.",
-				"Good decision! Many things your parents say have logically sound reasoning behind them, and especially in this case.",
+				"Good decision! Many things your parents say have logically sound reasoning behind them, especially in this case.",
 				new Image("file:Proposal1/src/Images/1920px-Teen_vaping_is_now_getting_popular_due_to_discreet_vaping_devices.jpg"),
 				"https://commons.wikimedia.org/wiki/Category:Juul_vaping_device#/media/File:Teen_vaping_is_now_getting_popular_due_to_discreet_vaping_devices.jpg"));
 
