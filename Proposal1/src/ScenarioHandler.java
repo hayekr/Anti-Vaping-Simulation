@@ -135,17 +135,38 @@ public class ScenarioHandler {
 				"You're bored at home and a sibling has an E-Cig. You know that they're okay with you trying it, they've offered it to you before. Do you want to try it?",
 				"You shouldn't have done that. Just because someone else is willing to risk their health doesn't mean you should risk yours as well.",
 				"Good decision! Just because someone else is willing to risk their health doesn't mean you should risk yours as well.",
-				new Image("file:Proposal1/src/Images/scenario4.jpg"),
+				new Image("file:Proposal1/src/Images/1920px-Electronic_cigarette_vape_pen.JPG"),
+				"https://commons.wikimedia.org/wiki/Category:Njoy_vaping_device#/media/File:Electronic_cigarette_vape_pen.JPG"));
+		scenariosArrayList.add(new Scenario(
+				"You are relaxing at home browsing social media when you see an ad for vaping that claims vaping is safe and makes you want to try it. Do you do it?",
+				"You shouldn’t have done that. Social media tends to portray vaping as a healthy alternative to smoking, but in reality it is just as dangerous.",
+				"Good decision! Vaping ads claim that vaping is healthier than smoking and that it is not dangerous, but it is actually just as bad.",
+				new Image("file:Proposal1/src/Images/800px-Smoke_Screen_(16582794210).jpg"),
 				"https://en.wikipedia.org/wiki/File:Smoke_Screen_(16582794210).jpg"));
-		// Temporary Testing Scenario Generator
-		for (int i = 0; i < 15; i++) {
-			switch(i % 3) {
-				case 0: scenariosArrayList.add(new Scenario("Scenario0", "vapedExp0","didnotVapeExp0", new Image("file:Proposal1/src/Images/testImage1.jpg"), "credit0")); break;
-				case 1: scenariosArrayList.add(new Scenario("Scenario1", "vapedExp1","didnotVapeExp1", new Image("file:Proposal1/src/Images/testImage2.jpg"), "credit1")); break;
-				case 2: scenariosArrayList.add(new Scenario("Scenario2", "vapedExp2","didnotVapeExp2", new Image("file:Proposal1/src/Images/testImage3.jpg"), "credit2")); break;
-				default:
-			}
-		}
+		scenariosArrayList.add(new Scenario(
+				"You are at a baseball game and a buddy of yours is vaping. He’s offered to share before, do you want to try it?",
+				"Your buddy may be fine vaping, but that doesn’t mean that you should be fine as well.",
+				"Good decision! Just because your buddy is fine with the possible health risks doesn’t mean you should be too.",
+				new Image("file:Proposal1/src/Images/800px-MLB_game.JPG"),
+				"https://commons.wikimedia.org/wiki/File:MLB_game.JPG"));
+		scenariosArrayList.add(new Scenario(
+				"You are at a party and everyone seems to be vaping. You want to fit in, but do you want to vape?",
+				"It may seem like everyone is vaping, but according to the CDC, around 1 in 5 students vape.",
+				"Good decision! It may seem like everyone is vaping, but according to the CDC around 1 in 5 students vape.",
+				new Image("file:Proposal1/src/Images/1920px-Juul_in_hand.jpg"),
+				"https://commons.wikimedia.org/wiki/Category:Juul_vaping_device#/media/File:Juul_in_hand.jpg"));
+		scenariosArrayList.add(new Scenario(
+				"You saw an ad saying that vaping was safer than smoking cigarettes. You like the aesthetic of smoking, but want to be safe. Do you want to vape?",
+				"While vaping can be safer than smoking cigarettes, safer does not mean safe. There are still health risks to vaping.",
+				"Good decision! While vaping can be safer than smoking cigarettes, safer does not mean safe. There are still health risks to vaping.",
+				new Image("file:Proposal1/src/Images/320px-Juul_vaping_device,_with_one_pod_(cropped).jpg"),
+				"https://commons.wikimedia.org/wiki/Category:Juul_vaping_device#/media/File:Juul_vaping_device,_with_one_pod_(cropped).jpg"));
+		scenariosArrayList.add(new Scenario(
+				"Your parents have always told you that they disapprove of smoking due to the numerous health effects and issues regarding the odor, but you’ve seen discrete e-cigarettes. Do you want to use one?",
+				"While you may disagree with what your parents say, they tend to have good reason for what they say, especially in the case of vaping.",
+				"Good decision! Many things your parents say have logically sound reasoning behind them, especially in this case.",
+				new Image("file:Proposal1/src/Images/1920px-Teen_vaping_is_now_getting_popular_due_to_discreet_vaping_devices.jpg"),
+				"https://commons.wikimedia.org/wiki/Category:Juul_vaping_device#/media/File:Teen_vaping_is_now_getting_popular_due_to_discreet_vaping_devices.jpg"));
 	}
 
 	/**
@@ -163,5 +184,13 @@ public class ScenarioHandler {
 	 */
 	public void resetIndex() {
 		tempTestingCounter = 0;
+	}
+
+	/**
+	 * Used to get the number of available scenarios
+	 * @return the number of available scenarios
+	 */
+	public int getNumberOfScenarios() {
+		return scenariosArrayList.size();
 	}
 }

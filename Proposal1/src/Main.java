@@ -287,7 +287,8 @@ public class Main extends Application {
 
 			// Tracker for ending game
 			tempRoundTracker.append("x");
-			if (tempRoundTracker.toString().length() > 10) {
+			// Not sure why you need to subtract 2, but it works
+			if (tempRoundTracker.toString().length() > scenarioHandler.getNumberOfScenarios() - 2) {
 				primaryStage.setScene(endScreenScene);
 				endScreen_statisticsText.setText(generateStatistics(vapeHistory.toString()));
 				endScreen_addictionExplanationText.setText(addictionSimulation.getExplanation());
