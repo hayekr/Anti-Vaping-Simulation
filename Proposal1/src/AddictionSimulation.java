@@ -129,7 +129,7 @@ public class AddictionSimulation {
 				"You may have vaped many times in a row and not even noticed some of the earlier effects.\n" +
 				"This is exactly how addiction works in real life. You may not realize you're addicted until you try\n" +
 				"to stop and are unable to. We hope that this simulation helped give a bit of insight into how exactly\n" +
-				"addiction and vaping can negatively effect your life. Thank you for taking your time to work with us.");
+				"addiction and vaping can negatively effect your life. Thank you for taking your time to work with us.\n\n Stay safe. Don't vape.");
 		return sb.toString();
 	}
 }
