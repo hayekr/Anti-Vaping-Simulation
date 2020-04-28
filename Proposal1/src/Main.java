@@ -49,7 +49,7 @@ public class Main extends Application {
 		final String didNotVapeKeyWordWithDelimiter = didNotVapeKeyWord + delimiter;
 
 		final int SCREEN_WIDTH = 830;
-		final int SCREEN_HEIGHT = 380;
+		final int SCREEN_HEIGHT = 515;
 
 		final String titleScreenTitle = "E-Cig Simulation";
 		final String helpScreenTitle = "Help";
