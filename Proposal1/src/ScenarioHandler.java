@@ -114,9 +114,9 @@ public class ScenarioHandler {
 	 */
 	private void generateScenarioList() {
 		scenariosArrayList.add(new Scenario(
-				"Today, your friend comes up to you with an E-Cig and asks if you want to try it. He says he's been having a good time with it recently and hasn't noticed any negative effects. Do you want to try it out? It couldn't do much harm, right?",
-				"Bad idea. He mentioned that he'd only been using it recently, and negative side effects can take time to manifest. Besides, Nicotine, a chemical found in the vape 'juice' is highly addictive.",
-				"Good decision! There are many potential side effects that may only manifest later in a person's use of vaping, such as addiction from Nicotine, a chemical found in the vape 'juice.'",
+				"Your friend comes up to you with an E-Cig and asks if you want to try it. He says he's been having a good time with it recently and hasn't noticed any negative effects. Do you want to try it out?",
+				"Bad idea. He mentioned that he'd only been using it recently, and negative side effects can take time to manifest. Besides, the nicotine in the vape 'juice' is highly addictive.",
+				"Good decision! There are many potential side effects that may only manifest later in a person's use of vaping, such as addiction to the nicotine found in the vape 'juice.'",
 				new Image("file:Proposal1/src/Images/scenario1.jpg"),
 				"https://en.wikipedia.org/wiki/File:Electronic_Cigarette_and_USB_Charger_(14939561277)_(retouched).jpg"));
 		scenariosArrayList.add(new Scenario(

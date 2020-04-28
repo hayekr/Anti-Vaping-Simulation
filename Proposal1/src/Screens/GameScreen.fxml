@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<GridPane alignment="center" hgap="10" style="-fx-background-color: papayawhip;" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<GridPane alignment="center" hgap="10" style="-fx-background-color: papayawhip;" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <GridPane prefHeight="515.0" prefWidth="894.0">
         <columnConstraints>
@@ -38,7 +41,7 @@
                 </font>
             </Button>
             <ImageView fx:id="imageTest" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <Text fx:id="scenarioTextField" strokeType="OUTSIDE" strokeWidth="0.0" text="scenario" wrappingWidth="250.0" GridPane.columnIndex="5" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Text fx:id="scenarioTextField" strokeType="OUTSIDE" strokeWidth="0.0" text="scenario" wrappingWidth="250.0" GridPane.columnIndex="5" GridPane.valignment="TOP">
                 <font>
                     <Font name="Courier New" size="18.0" />
                 </font>
@@ -48,12 +51,12 @@
                     <Font name="Courier New" />
                 </font>
              </Button>
-            <Text fx:id="explanationAfterNotVapingText" strokeType="OUTSIDE" strokeWidth="0.0" text="explanationAfterNotVaping" visible="false" wrappingWidth="250.0" GridPane.columnIndex="5" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+            <Text fx:id="explanationAfterNotVapingText" strokeType="OUTSIDE" strokeWidth="0.0" text="explanationAfterNotVaping" visible="false" wrappingWidth="250.0" GridPane.columnIndex="5" GridPane.rowIndex="6" GridPane.valignment="BOTTOM">
                 <font>
                     <Font name="Courier New" size="18.0" />
                 </font>
             </Text>
-            <Text fx:id="explanationAfterVapingText" strokeType="OUTSIDE" strokeWidth="0.0" text="explanationAfterVaping" visible="false" wrappingWidth="250.0" GridPane.columnIndex="5" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+            <Text fx:id="explanationAfterVapingText" strokeType="OUTSIDE" strokeWidth="0.0" text="explanationAfterVaping" visible="false" wrappingWidth="250.0" GridPane.columnIndex="5" GridPane.rowIndex="6" GridPane.valignment="BOTTOM">
                 <font>
                     <Font name="Courier New" size="18.0" />
                 </font>
