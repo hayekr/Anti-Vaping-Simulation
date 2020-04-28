@@ -164,7 +164,7 @@ public class ScenarioHandler {
 		scenariosArrayList.add(new Scenario(
 				"Your parents have always told you that they disapprove of smoking due to the numerous health effects and issues regarding the odor, but you’ve seen discrete e-cigarettes. Do you use one?",
 				"While you may disagree with what your parents say, they tend to have good reason for what they say, especially in the case of vaping.",
-				"Good decision! Many things your parents say have logically sound reasoning behind them, especially in this case.",
+				"Good decision! Many things your parents say have logically sound reasoning behind them, and especially in this case.",
 				new Image("file:Proposal1/src/Images/1920px-Teen_vaping_is_now_getting_popular_due_to_discreet_vaping_devices.jpg"),
 				"https://commons.wikimedia.org/wiki/Category:Juul_vaping_device#/media/File:Teen_vaping_is_now_getting_popular_due_to_discreet_vaping_devices.jpg"));
 
