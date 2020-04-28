@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -35,6 +36,7 @@ public class Main extends Application {
 	// Addiction Simulation
 	private int doublePressed = 1;
 	private final String popUpText = "Are you sure you don't want to vape?";
+	private final String popUpAffirmative = "Yes";
 	private final double vapeScaleSpeed = 1.025;
 	private final double doNotVapeScaleSpeed = 0.975;
 
@@ -213,8 +215,9 @@ public class Main extends Application {
 
 
 		// Additional addiction simulation code
-		Alert popUp = new Alert(Alert.AlertType.CONFIRMATION);
-		popUp.setContentText(popUpText);
+		ButtonType popUpAffirmativeButton = new ButtonType(popUpAffirmative);
+		Alert popUp = new Alert(Alert.AlertType.CONFIRMATION, popUpText, popUpAffirmativeButton);
+		popUp.setTitle(popUpText);
 
 		// This code segment handles a user pressing the do not vape button
 		// Addiction simulation code goes in here
