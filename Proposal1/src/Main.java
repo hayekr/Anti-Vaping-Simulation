@@ -19,14 +19,14 @@ public class Main extends Application {
 
 	// UI Values
 	//		Do not vape button
-	private final int doNotVapeButtonDefaultScale = 2;
+	private final double doNotVapeButtonDefaultScale = 2.5;
 	private final String doNotVapeButtonDefaultText = "Don't Vape";
 	private final String doNotVapeButtonDoublePressText = "Are you sure?";
 	//		Vape button
-	private final int vapeButtonDefaultScale = 2;
+	private final double vapeButtonDefaultScale = 2.5;
 	private final String vapeButtonDefaultText = "Vape";
 	//		Continue button
-	private final int continueButtonDefaultScale = 2;
+	private final double continueButtonDefaultScale = 2.5;
 	private final String continueButtonDefaultText = "Continue";
 
 	// Object Construction

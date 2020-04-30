@@ -1,0 +1,2 @@
+java --module-path C:\Users\Danny\Utilities\Libraries\javafx-sdk-13.0.2\lib --add-modules javafx.controls,javafx.fxml -jar Anti-Vaping-Simulation.jar
+		   # Replace with path to local JavaFX library SDK

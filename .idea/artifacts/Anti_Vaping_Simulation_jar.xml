@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Anti-Vaping-Simulation:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Anti_Vaping_Simulation_jar</output-path>
+    <root id="archive" name="Anti-Vaping-Simulation.jar">
+      <element id="module-output" name="Anti-Vaping-Simulation" />
+    </root>
+  </artifact>
+</component>
